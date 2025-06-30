@@ -1,0 +1,14 @@
+import pandas as pd
+
+# Load the dataset
+df = pd.read_csv("car_data.csv")
+
+# ✅ Step 3.1: Drop Car_Name (not useful for prediction)
+df.drop('Car_Name', axis=1, inplace=True)
+
+# ✅ Step 3.2: Create a new feature: Car_Age
+df['Car_Age'] = 2025 - df['Year']   # You can change 2025 to current year
+df.drop('Year', axis=1, inplace=True)
+
+# ✅ Step 3.3: Show updated dataset
+print(df.head())
